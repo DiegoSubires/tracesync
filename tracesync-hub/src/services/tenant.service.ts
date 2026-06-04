@@ -1,10 +1,12 @@
 import { type TenantInfo } from "../types/domain";
+import { apiClient } from "./apiClient";
 
 export const TenantService = {
   async getTenantConfig(tenantId: string): Promise<TenantInfo> {
-    const response = await fetch(
-      `http://localhost:4000/api/tenant-config/${tenantId}`,
-    );
+    /*const response = await fetch(
+      `${import.meta.env.VITE_API_URL}/api/tenant-config/${tenantId}`,
+    );*/
+    const response = await apiClient(`/api/tenant-config/${tenantId}`);
     if (!response.ok)
       throw new Error("Error al obtener configuración del tenant");
 

@@ -10,6 +10,8 @@ app.use(
       "http://localhost:5173",
       "http://localhost:5174",
       "http://localhost:5175",
+      "https://tracesync-backend-dev.loca.lt",
+      "https://diegosubires.github.io",
     ],
     methods: ["POST", "PUT", "GET", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
