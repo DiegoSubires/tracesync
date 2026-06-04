@@ -1,0 +1,132 @@
+.loginContainer {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #020617; // Fondo oscuro slate-950 encapsulado
+  padding: 24px;
+}
+
+.loginCard {
+  width: 100%;
+  max-width: 440px;
+  background-color: #0f172a; // Fondo slate-900
+  border: 1px solid #1e293b;
+  border-radius: 24px;
+  padding: 40px;
+  text-align: center;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+}
+
+.brandHeader {
+  margin-bottom: 32px;
+
+  .logoContainer {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    background-color: rgba(34, 211, 238, 0.1); // cyan-500/10
+    border: 1px solid rgba(34, 211, 238, 0.2);
+    border-radius: 16px;
+    color: #22d3ee; // cyan-400
+    font-family: ui-monospace, Consolas, monospace;
+    font-size: 24px;
+    font-weight: 800;
+    margin-bottom: 16px;
+  }
+
+  .title {
+    font-size: 24px;
+    font-weight: 800;
+    color: #f8fafc;
+    margin: 0;
+  }
+
+  .subtitle {
+    font-size: 14px;
+    color: #94a3b8;
+    margin-top: 8px;
+  }
+}
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.inputGroup {
+  text-align: left;
+
+  .label {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #94a3b8;
+    margin-bottom: 8px;
+    letter-spacing: 0.05em;
+  }
+
+  .input {
+    width: 100%;
+    background-color: #020617;
+    border: 1px solid #1e293b;
+    border-radius: 12px;
+    padding: 12px 16px;
+    font-size: 14px;
+    color: #f1f5f9;
+    outline: none;
+    transition: border-color 0.2s;
+
+    &:focus {
+      border-color: #22d3ee; // cyan-500
+    }
+
+    &::placeholder {
+      color: #475569;
+    }
+  }
+}
+
+.errorMessage {
+  background-color: rgba(127, 29, 29, 0.4); // red-950/40
+  border: 1px solid #7f1d1d;
+  color: #f87171;
+  padding: 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  text-align: left;
+}
+
+.submitButton {
+  width: 100%;
+  background: linear-gradient(
+    to right,
+    #06b6d4,
+    #2563eb
+  ); // cyan-500 to blue-600
+  color: #ffffff;
+  padding: 12px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.2s;
+
+  &:hover:not(:disabled) {
+    opacity: 0.9;
+  }
+
+  &:active:not(:disabled) {
+    transform: scale(0.98);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}

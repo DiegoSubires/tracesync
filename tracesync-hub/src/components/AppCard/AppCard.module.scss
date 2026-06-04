@@ -1,0 +1,75 @@
+.cardContainer {
+  background-color: #0f172a; // Fondo slate-900 oscuro
+  border: 1px solid #1e293b; // Borde slate-800 sutil
+  padding: 32px;
+  border-radius: 24px;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+
+  &:hover {
+    border-color: #2563eb;
+    box-shadow: 0 12px 20px -3px rgba(37, 99, 235, 0.15);
+    transform: translateY(-4px);
+
+    .cardTitle {
+      color: #22d3ee;
+    }
+
+    .actionLink {
+      color: #22d3ee;
+      padding-left: 4px;
+    }
+  }
+}
+
+.topContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.iconWrapper {
+  background: #ecfeff; // Fondo azul celeste sutil
+  color: #0891b2; // Texto azul oscuro
+  border: 1px solid #cffafe;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  font-weight: 800;
+  font-size: 16px;
+  margin-bottom: 24px;
+  font-family: ui-monospace, Consolas, monospace;
+}
+
+.cardTitle {
+  font-size: 18px;
+  font-weight: 700;
+  color: #ffffff; // Texto blanco para contraste industrial
+  margin: 0 0 8px 0;
+  transition: color 0.2s ease;
+}
+
+.cardDescription {
+  font-size: 13px;
+  color: #94a3b8; // slate-400 para descripciones secundarias
+  line-height: 1.5;
+  margin: 0;
+}
+
+.actionLink {
+  color: #2563eb; // Azul enlace corporativo inicial
+  font-weight: 600;
+  font-size: 12px;
+  margin-top: 24px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: all 0.2s ease;
+}

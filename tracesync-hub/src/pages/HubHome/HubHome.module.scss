@@ -1,0 +1,40 @@
+.hubContainer {
+  width: 100%;
+  padding: 8px 16px;
+  box-sizing: border-box;
+}
+
+.headerSection {
+  text-align: left;
+  margin-bottom: 32px;
+
+  .title {
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    color: #ffffff;
+    margin: 0;
+  }
+
+  .subtitle {
+    color: #94a3b8; // slate-400
+    font-size: 14px;
+    margin-top: 8px;
+    line-height: 1.5;
+  }
+}
+
+// Rejilla de tarjetas (Grid Industrial encapsulado)
+.grid {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 24px;
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}

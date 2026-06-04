@@ -1,0 +1,7 @@
+# Ignorar carpetas de microapps específicas que no quiero subir todavía
+# (Cambia estos nombres por los nombres reales de las carpetas que quieres excluir)
+VueReactTypescript/
+
+# Por seguridad general en la raíz
+.DS_Store
+Thumbs.db

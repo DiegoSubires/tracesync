@@ -1,0 +1,233 @@
+.mainContent {
+  flex: 1;
+  width: 100%;
+  max-width: 1280px; // Equivale a max-w-7xl
+  margin: 0 auto;
+  padding: 24px;
+  box-sizing: border-box;
+}
+
+.portalWrapper {
+  min-height: 100vh;
+  background-color: #020617; // Slate-950
+  color: #f3f4f6;
+  display: flex;
+  flex-direction: column;
+}
+
+.headerBar {
+  border-bottom: 1px solid #0f172a; // slate-900
+  background-color: rgba(15, 23, 42, 0.5); // slate-900/50
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.headerContainer {
+  max-width: 1280px; // max-w-7xl
+  margin: 0 auto;
+  padding: 0 24px;
+  height: 64px; // h-16
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.leftSection {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  .logoImage {
+    height: 36px;
+    width: auto;
+    object-fit: contain;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 4px;
+  }
+
+  .fallbackLogo {
+    height: 32px;
+    width: 32px;
+    border-radius: 8px;
+    background-color: rgba(34, 211, 238, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: ui-monospace, Consolas, monospace;
+    font-weight: bold;
+    color: #22d3ee;
+    font-size: 14px;
+  }
+
+  .metaText {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+
+    .businessName {
+      font-size: 14px;
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.2;
+    }
+
+    .portalLabel {
+      font-size: 10px;
+      font-family: ui-monospace, Consolas, monospace;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #64748b;
+      line-height: 1;
+      margin-top: 2px;
+    }
+  }
+}
+
+.rightSection {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  .operatorInfo {
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    font-family: ui-monospace, Consolas, monospace;
+
+    .operatorName {
+      font-size: 12px;
+      font-weight: 600;
+      color: #cbd5e1;
+    }
+
+    .operatorRole {
+      font-size: 10px;
+      color: #22d3ee;
+      text-transform: uppercase;
+      letter-spacing: -0.025em;
+    }
+  }
+
+  .logoutButton {
+    background-color: #0f172a;
+    border: 1px solid #1e293b;
+    padding: 8px 16px;
+    border-radius: 12px;
+    font-size: 12px;
+    color: #94a3b8;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+
+    &:hover {
+      background-color: rgba(127, 29, 29, 0.3); // red-950/30
+      color: #f87171;
+      border-color: rgba(127, 29, 29, 0.5);
+    }
+  }
+}
+
+.mainContent {
+  flex: 1;
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 24px 24px;
+
+  @media (min-width: 640px) {
+    padding: 32px 32px;
+  }
+}
+
+.footer {
+  border-top: 1px solid #0f172a;
+  padding: 16px 0;
+  text-align: center;
+
+  .footerText {
+    font-size: 11px;
+    font-family: ui-monospace, Consolas, monospace;
+    color: #475569;
+  }
+}
+
+.headerBar {
+  .headerContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .brandMeta {
+    display: flex;
+    flex-direction: column; // Apila Empresa y Página
+    .companyName {
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+    .pageLabel {
+      font-size: 0.85rem;
+      color: #666;
+    }
+  }
+  .userInfo {
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    font-size: 0.9rem;
+  }
+}
+
+.footerBar {
+  padding: 1rem;
+  text-align: center;
+  border-top: 1px solid #eee;
+  .footerCompany {
+    font-weight: bold;
+    margin: 0;
+  }
+  .footerAddress {
+    font-size: 0.8rem;
+    color: #777;
+    margin: 0;
+  }
+}
+
+// layout.module.scss
+
+// Columna Izquierda: Empresa y Aplicación
+.brandMeta {
+  display: flex;
+  flex-direction: column;
+  margin-left: 12px; // Separación entre logo y texto
+
+  .companyName {
+    font-size: 1.25rem; // Empresa más grande
+    font-weight: 800;
+    color: #ffffff;
+  }
+  .pageLabel {
+    font-size: 0.9rem;
+    color: #94a3b8; // Gris corporativo
+  }
+}
+
+// Columna Derecha: Usuario y Rol
+.userInfo {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+
+  .userName {
+    font-weight: 600;
+    color: #cbd5e1;
+  }
+  .userRole {
+    font-size: 0.85rem;
+    color: #22d3ee; // Verde/Azul corporativo como tenías
+    text-transform: uppercase;
+  }
+}

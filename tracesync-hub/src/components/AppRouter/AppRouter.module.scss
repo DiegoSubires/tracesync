@@ -1,0 +1,197 @@
+// Contenedor para el Login del Operario y Mensajes de Éxito
+.cardContainer {
+  max-width: 440px;
+  margin: 60px auto;
+  padding: 40px 32px;
+  background-color: #0f172a; // Slate-900 oscuro como el resto del ecosistema
+  border: 1px solid #1e293b; // Slate-800 sutil
+  border-radius: 24px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+.badge {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #22d3ee; // Cian brillante corporativo
+  font-family: ui-monospace, Consolas, monospace;
+  letter-spacing: 0.05em;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 800;
+  margin-top: 12px;
+  margin-bottom: 8px;
+  color: #ffffff; // Texto en blanco absoluto
+}
+
+.subtitle {
+  color: #94a3b8; // Slate-400 para lectura relajada
+  font-size: 13px;
+  margin-top: 4px;
+  line-height: 1.6;
+}
+
+.form {
+  margin-top: 28px;
+}
+
+// Contenedor relativo para posicionar el botón del ojo
+.inputWrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.pinInput {
+  width: 100%;
+  padding: 14px 60px 14px 16px; // Espacio a la derecha (60px) para que el texto no pise el botón "Ver"
+  background-color: #020617; // Slate-950 fondo profundo
+  border: 1px solid #334155; // Slate-700
+  border-radius: 12px;
+  font-size: 16px;
+  color: #ffffff !important; // Texto siempre blanco al escribir
+  transition: all 0.2s ease;
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  letter-spacing: 0.1em;
+
+  &:focus {
+    outline: none;
+    border-color: #22d3ee;
+    box-shadow: 0 0 0 2px rgba(34, 211, 238, 0.15);
+  }
+
+  &::placeholder {
+    color: #475569; // Slate-600 para el texto guía
+    letter-spacing: normal;
+  }
+}
+
+// 👁️ NUEVA CLASE: Estilos limpios para el botón de visualizar el PIN
+.eyeButton {
+  position: absolute;
+  right: 16px;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #94a3b8; // Color slate-400 inicial
+  padding: 6px;
+  z-index: 10;
+  transition: color 0.15s ease;
+
+  &:hover {
+    color: #22d3ee; // Cambia a cian en hover
+  }
+}
+
+// Modificador activo para el ojo cuando está mostrando texto plano
+.eyeButtonActive {
+  color: #22d3ee !important;
+}
+
+.buttonGroup {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.btnCancel {
+  width: 50%;
+  padding: 12px;
+  background-color: #1e293b; // Slate-800
+  color: #94a3b8;
+  border-radius: 12px;
+  border: 1px solid #334155;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.2s;
+
+  &:hover {
+    background-color: #334155;
+    color: #ffffff;
+  }
+}
+
+.btnSubmit {
+  width: 50%;
+  padding: 12px;
+  background-color: #2563eb; // Azul corporativo
+  color: #ffffff;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  transition: background-color 0.2s;
+
+  &:hover {
+    background-color: #1d4ed8;
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+// Estilos para la Pantalla del Módulo Activo (Operando)
+.activeModuleWrapper {
+  background-color: #0f172a;
+  border: 1px solid #1e293b;
+  padding: 32px;
+  border-radius: 24px;
+}
+
+.activeHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #1e293b;
+  padding-bottom: 20px;
+  margin-bottom: 24px;
+}
+
+.activeModuleTitle {
+  font-size: 20px;
+  color: #ffffff;
+  margin-top: 4px;
+}
+
+.btnExitModule {
+  background-color: rgba(
+    239,
+    68,
+    68,
+    0.1
+  ); // 🚀 SOLUCIÓN: Formato correcto nativo
+  color: #f87171;
+  border: 1px solid rgba(239, 68, 68, 0.2); // 🚀 SOLUCIÓN: Formato correcto nativo
+  padding: 10px 16px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 13px;
+  transition: all 0.2s;
+
+  &:hover {
+    background-color: #ef4444;
+    color: #ffffff;
+  }
+}
+
+.workspaceDashboard {
+  color: #94a3b8;
+  font-family: ui-monospace, Consolas, monospace;
+  padding: 40px;
+  background-color: #020617;
+  border-radius: 16px;
+  border: 1px dashed #334155;
+}

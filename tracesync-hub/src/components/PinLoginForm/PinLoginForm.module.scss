@@ -1,0 +1,70 @@
+// src/components/PinLoginForm/PinLoginForm.module.scss
+.loginContainer {
+  max-width: 440px;
+  margin: 60px auto;
+  padding: 40px 32px;
+  background-color: #0f172a;
+  border: 1px solid #1e293b;
+  border-radius: 24px;
+}
+
+.inputGroup {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.label {
+  display: block;
+  font-size: 13px;
+  color: #94a3b8;
+  margin-bottom: 8px;
+}
+
+.input {
+  width: 100%;
+  padding: 12px;
+  background: #020617;
+  border: 1px solid #334155;
+  color: white;
+  border-radius: 8px;
+}
+
+.errorMessage {
+  color: #f87171; /* Rojo error */
+  font-size: 12px;
+  margin-top: -10px;
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.btnPrimary {
+  width: 100%;
+  padding: 12px;
+  background-color: #3b82f6; /* Color azul industrial */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+
+  &:hover:not(:disabled) {
+    background-color: #2563eb;
+  }
+
+  &:disabled {
+    background-color: #475569;
+    cursor: not-allowed;
+    opacity: 0.7;
+  }
+}
+
+.appTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #1e293b;
+  text-align: center;
+}
