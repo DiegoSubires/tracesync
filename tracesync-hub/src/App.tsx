@@ -212,7 +212,7 @@ const DEFAULT_TENANT = {
   tenantId: "tracesync",
   businessName: "TraceSync",
   companyAddress: "Soluciones Industriales",
-  logoUrl: "/logo.png",
+  logoUrl: `${import.meta.env.BASE_URL}logo.png`,
 };
 
 export default function App() {
