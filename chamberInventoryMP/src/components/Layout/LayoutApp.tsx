@@ -1,6 +1,6 @@
 // src/components/Layout/LayoutApp.tsx
 import React from "react";
-import styles from "./LayoutApp.module.scss";
+import styles from "./Layoutapp.module.scss";
 import { type ExtendedLayoutProps } from "./LayoutApp.vm";
 import { useLayoutState } from "./LayoutApp.state";
 import { useLayoutEffects } from "./LayoutApp.effects";
