@@ -56,6 +56,15 @@ export const Home: React.FC<HomeProps> = ({
     [setState],
   );
 
+  const {
+    filteredProducts,
+    availableSubcategories,
+    activeSubcategory,
+    setActiveCategory,
+    setActiveSubcategory,
+    loading,
+  } = useHomeViewModel(state, setState);
+
   // 🔄 2. Inyección del Hook de Efectos (Escucha cambios de Planta y de Fecha)
   useHomeEffects(userSession.tenantId, workingDate, setLoading, setProducts);
 
@@ -82,15 +91,6 @@ export const Home: React.FC<HomeProps> = ({
       active = false;
     };
   }, [workingDate, userSession.tenantId]);
-
-  const {
-    filteredProducts,
-    availableSubcategories,
-    activeSubcategory,
-    setActiveCategory,
-    setActiveSubcategory,
-    loading,
-  } = useHomeViewModel(state, setState);
 
   /*console.log(
     `🏠 [Home Render] loading: ${loading} | Cantidad de productos en catálogo: ${filteredProducts.length}`,

@@ -4,6 +4,8 @@ import tailwindcss from "@tailwindcss/vite";
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: "/tracesync/tracesync-hub/",
+  //base: "/tracesync/tracesync-hub/",
+  //base: "./",
+  base: "/tracesync/",
   plugins: [react(), tailwindcss()],
 });

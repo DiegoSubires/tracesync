@@ -2,7 +2,7 @@
   "name": "tracesync-hub",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://diegosubires.github.io/tracesync",
+  "homepage": "https://diegosubires.github.io/tracesync/",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -10,7 +10,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist -m \"Despliegue automatico: codigo actualizado\""
   },
   "dependencies": {
     "react": "^19.2.6",

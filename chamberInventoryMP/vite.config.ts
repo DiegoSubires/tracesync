@@ -12,8 +12,15 @@ export default defineConfig({
       },
     },
   },*/
-  server: {
+  base: "/tracesync/chamberInventoryMP/",
+  /*server: {
     port: 5175,
     strictPort: true,
+  },*/
+  build: {
+    // 🚀 TRUCO: Cambiamos el destino de la compilación hacia el dist del Hub
+    //outDir: "../tracesync-hub/dist/chamberInventoryMP",
+    outDir: "./dist",
+    emptyOutDir: true, // Limpia la subcarpeta antes de compilar
   },
 });

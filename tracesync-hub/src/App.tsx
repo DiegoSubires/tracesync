@@ -216,9 +216,22 @@ const DEFAULT_TENANT = {
 };
 
 export default function App() {
-  const [session, setSession] = useState<AuthSessionState | null>(() =>
+  /*const [session, setSession] = useState<AuthSessionState | null>(() =>
     SessionService.get(),
-  );
+  );*/
+  const [session, setSession] = useState<AuthSessionState | null>(() => {
+    const data = SessionService.get();
+    // LOG: Auditoría de carga inicial
+    console.group("🔍 [DEBUG] Carga de Sesión");
+    console.log("Datos recuperados:", data);
+    console.log(
+      "Apps permitidas:",
+      data?.apps?.map((a) => a.appId),
+    );
+    console.groupEnd();
+    return data;
+  });
+
   const [activeOperator, setActiveOperator] = useState<UserSession | null>(
     null,
   );
@@ -266,7 +279,7 @@ export default function App() {
     }
   };
 
-  return (
+  /*return (
     <LayoutHub
       onLogout={handleLogout}
       onGoBack={() => setScreen("HUB")}
@@ -283,6 +296,49 @@ export default function App() {
           setSession(data);
           setScreen("HUB");
         }}
+        onSelectModule={handleSelectModule}
+        onOperatorVerifySuccess={handleOperatorVerifySuccess}
+        onExitModule={() => setScreen("HUB")}
+        onLogout={handleLogout}
+      />
+    </LayoutHub>
+  );
+}*/
+
+  if (!session) {
+    return (
+      <AppRouter
+        screen="COMPANY_LOGIN"
+        setScreen={setScreen}
+        apps={[]}
+        selectedModule={null}
+        onLoginSuccess={(data) => {
+          setSession(data);
+          setScreen("HUB");
+        }}
+        onSelectModule={handleSelectModule}
+        onOperatorVerifySuccess={handleOperatorVerifySuccess}
+        onExitModule={() => setScreen("HUB")}
+        onLogout={handleLogout}
+      />
+    );
+  }
+
+  // 2. Si HAY sesión, renderizamos el LayoutHub envolviendo al AppRouter
+  return (
+    <LayoutHub
+      onLogout={handleLogout}
+      onGoBack={() => setScreen("HUB")}
+      isPinScreen={screen === "MODULE_OPERATOR_LOGIN"}
+      tenant={currentTenant}
+      user={session.user} // Asegúrate que session traiga el usuario aquí
+    >
+      <AppRouter
+        screen={screen}
+        setScreen={setScreen}
+        apps={session.apps || []}
+        selectedModule={selectedModule}
+        onLoginSuccess={setSession}
         onSelectModule={handleSelectModule}
         onOperatorVerifySuccess={handleOperatorVerifySuccess}
         onExitModule={() => setScreen("HUB")}

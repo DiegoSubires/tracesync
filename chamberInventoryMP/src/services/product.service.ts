@@ -1,6 +1,7 @@
 // src/services/product.service.ts
 import { type Product } from "../pages/Home/Home.vm";
 import { type BatchLine } from "../components/BatchRow/BatchRow.vm";
+import { apiClient } from "./apiClient";
 
 // Tipamos lo que ESPERAMOS recibir del backend
 interface RawProduct {
@@ -20,17 +21,20 @@ interface RawProduct {
 export const ProductService = {
   // 1. Obtener catálogo completo (Para Home)
   async fetchAllProducts(tenantId: string): Promise<Product[]> {
-    const url = `http://localhost:4000/api/products?tenant=${tenantId}`;
+    //const url = `http://localhost:4000/api/products?tenant=${tenantId}`;
+    const endpoint = `/api/products?tenant=${tenantId}`;
 
-    const response = await fetch(url);
+    //const response = await fetch(url);
 
-    if (!response.ok) {
+    const data: RawProduct[] = await apiClient(endpoint);
+
+    /*if (!response.ok) {
       const errorText = await response.text();
       console.error("❌ [API] Error en respuesta:", errorText);
       throw new Error(`Error ${response.status}`);
     }
 
-    const data: RawProduct[] = await response.json();
+    const data: RawProduct[] = await response.json();*/
 
     // Mapper seguro
     return data.map((prod: RawProduct) => ({
@@ -51,9 +55,10 @@ export const ProductService = {
     tenantId: string,
   ): Promise<Product> {
     // 💡 AÑADIDO: ?tenant=${tenantId}
-    const url = `http://localhost:4000/api/products/${productId}?tenant=${tenantId}`;
+    //const url = `http://localhost:4000/api/products/${productId}?tenant=${tenantId}`;
+    const endpoint = `/api/products/${productId}?tenant=${tenantId}`;
 
-    const response = await fetch(url);
+    /*const response = await fetch(url);
     if (!response.ok) {
       console.error(
         `❌ [API] Error buscando producto ${productId}:`,
@@ -62,7 +67,9 @@ export const ProductService = {
       throw new Error(`Error ${response.status}: ${response.statusText}`);
     }
 
-    const data: RawProduct = await response.json();
+    const data: RawProduct = await response.json();*/
+
+    const data: RawProduct = await apiClient(endpoint);
 
     return {
       id: data.id || data._id || "",

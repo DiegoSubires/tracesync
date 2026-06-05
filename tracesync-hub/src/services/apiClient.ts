@@ -4,6 +4,7 @@ export const apiClient = async (endpoint: string, options: any = {}) => {
   const token = localStorage.getItem("tracesync_token");
   const headers = {
     "Content-Type": "application/json",
+    "bypass-tunnel-reminder": "true",
     ...options.headers,
     ...(token && { Authorization: `Bearer ${token}` }),
   };
