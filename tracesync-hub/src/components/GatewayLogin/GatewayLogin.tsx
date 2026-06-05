@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import type { AuthSessionState } from "../../types/domain";
-import styles from "./gateway-login.module.scss";
+import styles from "./Gateway-login.module.scss";
 import { AuthService } from "../../services/auth.service";
 
 interface GatewayLoginProps {

@@ -1,6 +1,6 @@
 // src/components/LayoutHub/LayoutHub.tsx
 import React from "react";
-import styles from "../LayoutHub/layoutHub.module.scss";
+import styles from "./LayoutHub/LayoutHub.module.scss";
 import { type PortalLayoutProps } from "./LayoutHub.vm";
 
 export const LayoutHub: React.FC<PortalLayoutProps> = ({
