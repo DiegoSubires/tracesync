@@ -216,6 +216,7 @@ const DEFAULT_TENANT = {
 };
 
 export default function App() {
+  console.log("Quitar");
   /*const [session, setSession] = useState<AuthSessionState | null>(() =>
     SessionService.get(),
   );*/
