@@ -9,7 +9,8 @@
     "predeploy": "npm run build:all",
     "deploy": "gh-pages -d tracesync-hub/dist -m \"Despliegue global del ecosistema TraceSync\"",
     "deploy:hub": "npm run build:hub && gh-pages -d tracesync-hub/dist -m \"Deploy Hub\"",
-    "deploy:chamber": "npm run build:chamber && gh-pages -d chamberInventoryMP/dist -m \"Deploy Chamber\""
+    "deploy:chamber": "npm run build:chamber && gh-pages -d chamberInventoryMP/dist -m \"Deploy Chamber\"",
+    "g": "git add . && git commit -m \"$1\" && git push origin main"
   },
   "devDependencies": {
     "gh-pages": "^6.3.0",

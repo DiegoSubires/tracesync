@@ -10,7 +10,8 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist -m \"Despliegue automatico: codigo actualizado\""
+    "deploy": "gh-pages -d dist -m \"Despliegue automatico: codigo actualizado\"",
+    "g": "git add . && git commit -m \"$1\" && git push origin main"
   },
   "dependencies": {
     "react": "^19.2.6",
