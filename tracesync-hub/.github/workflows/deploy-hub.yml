@@ -1,0 +1,17 @@
+name: Deploy Hub
+on:
+  push:
+    branches: [main]
+    paths: ["tracesync-hub/**"] # Solo se ejecuta si cambia el Hub
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: cd tracesync-hub && npm install && npm run build
+      - uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./tracesync-hub/dist
+          destination_dir: . # Despliega en la raíz de gh-pages

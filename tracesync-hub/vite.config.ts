@@ -6,6 +6,6 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineConfig({
   //base: "/tracesync/tracesync-hub/",
   //base: "./",
-  base: "./",
+  base: "/tracesync/",
   plugins: [react(), tailwindcss()],
 });
