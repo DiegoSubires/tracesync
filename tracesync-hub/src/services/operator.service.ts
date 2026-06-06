@@ -80,5 +80,6 @@ export const OperatorService = {
 
     // Retornamos directamente 'data' porque apiClient ya hizo el response.json()
     return data;
+    console.log(data);
   },
 };
