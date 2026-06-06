@@ -12,7 +12,7 @@ export default defineConfig({
       },
     },
   },*/
-  base: "/tracesync/chamberInventoryMP/",
+  base: "./",
   /*server: {
     port: 5175,
     strictPort: true,
