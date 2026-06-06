@@ -67,7 +67,6 @@ const getCookie = (name: string): string => {
 };
 
 export default function App() {
-  console.log("Quitar");
   const [session] = useState<UserSession>(() => {
     // 🔍 LOG 1: Verificar qué trae la URL y las Cookies al cargar
     const urlParams = new URLSearchParams(window.location.search);
