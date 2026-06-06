@@ -23,50 +23,23 @@ jobs:
         env:
           VITE_API_URL: ${{ secrets.VITE_API_URL }}
         run: |
-          # Construimos el Hub
-          cd tracesync-hub
-          npm install
-          npm run build
-          cd ..
+          # Construir Hub
+          cd tracesync-hub && npm install && npm run build && cd ..
+          # Construir Microapp
+          cd chamberInventoryMP && npm install && npm run build && cd ..
 
-          # Construimos la microapp
-          cd chamberInventoryMP
-          npm install
-          npm run build
-
-      - name: Copy Microapp to Dist
-        run: |
-          # Creamos la carpeta de destino por si no existe
-          mkdir -p tracesync-hub/dist/chamberInventoryMP
-          # Copiamos el contenido
-          cp -r chamberInventoryMP/dist/* tracesync-hub/dist/chamberInventoryMP/
-          # COPIA EL 404.html A LA RAÍZ DEL DIST
-          cp tracesync-hub/dist/404.html tracesync-hub/dist/ || echo "No existe 404.html en hub/dist"
-
-      - name: Verify Microapp Presence
-        run: |
-          if [ -d "tracesync-hub/dist/chamberInventoryMP" ]; then
-            echo "✅ La microapp existe en el dist."
-            ls -la tracesync-hub/dist/chamberInventoryMP
-          else
-            echo "❌ ERROR: La carpeta chamberInventoryMP NO se ha generado."
-            exit 1 # Esto hace que el workflow falle y te alerte
-          fi
-
-      - name: Debug Structure
-        run: |
-          echo "--- Estructura final del dist tras la copia ---"
-          find ./tracesync-hub/dist -maxdepth 3
-
-      - name: Visualizar estructura
-        run: |
-          # Instala tree si no está (es muy ligero)
-          sudo apt-get update && sudo apt-get install -y tree
-          echo "--- Estructura final del dist ---"
-          tree tracesync-hub/dist
-
-      - name: Deploy
+      # Despliegue 1: El Hub a la raíz (/)
+      - name: Deploy Hub to Root
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./tracesync-hub/dist
+          destination_dir: .
+
+      # Despliegue 2: La Microapp a /chamberInventoryMP/
+      - name: Deploy Microapp to Subdirectory
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./chamberInventoryMP/dist
+          destination_dir: chamberInventoryMP
