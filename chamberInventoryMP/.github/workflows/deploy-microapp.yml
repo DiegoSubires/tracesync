@@ -1,0 +1,17 @@
+name: Deploy Microapp
+on:
+  push:
+    branches: [main]
+    paths: ["chamberInventoryMP/**"] # Solo se ejecuta si cambia la microapp
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: cd chamberInventoryMP && npm install && npm run build
+      - uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./chamberInventoryMP/dist
+          destination_dir: chamberInventoryMP # Despliega en /chamberInventoryMP/
