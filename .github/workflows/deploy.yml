@@ -40,6 +40,8 @@ jobs:
           mkdir -p tracesync-hub/dist/chamberInventoryMP
           # Copiamos el contenido
           cp -r chamberInventoryMP/dist/* tracesync-hub/dist/chamberInventoryMP/
+          # COPIA EL 404.html A LA RAÍZ DEL DIST
+          cp tracesync-hub/dist/404.html tracesync-hub/dist/ || echo "No existe 404.html en hub/dist"
 
       - name: Verify Microapp Presence
         run: |
@@ -55,6 +57,13 @@ jobs:
         run: |
           echo "--- Estructura final del dist tras la copia ---"
           find ./tracesync-hub/dist -maxdepth 3
+
+      - name: Visualizar estructura
+        run: |
+          # Instala tree si no está (es muy ligero)
+          sudo apt-get update && sudo apt-get install -y tree
+          echo "--- Estructura final del dist ---"
+          tree tracesync-hub/dist
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3

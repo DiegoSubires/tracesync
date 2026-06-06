@@ -12,6 +12,7 @@
     "deploy:chamber": "npm run build:chamber && gh-pages -d chamberInventoryMP/dist -m \"Deploy Chamber\""
   },
   "devDependencies": {
-    "gh-pages": "^6.3.0"
+    "gh-pages": "^6.3.0",
+    "tree-node-cli": "^3.0.0"
   }
 }
