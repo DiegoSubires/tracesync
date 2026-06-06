@@ -28,15 +28,14 @@ jobs:
           # Construir Microapp
           cd chamberInventoryMP && npm install && npm run build && cd ..
 
-      # Despliegue 1: El Hub a la raíz (/)
       - name: Deploy Hub to Root
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./tracesync-hub/dist
           destination_dir: .
+          force_orphan: true # <--- ESTO ES LA CLAVE: Borra el historial anterior
 
-      # Despliegue 2: La Microapp a /chamberInventoryMP/
       - name: Deploy Microapp to Subdirectory
         uses: peaceiris/actions-gh-pages@v3
         with:
