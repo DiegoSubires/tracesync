@@ -1,5 +1,5 @@
 // src/components/AppRouter/AppRouter.tsx
-import { HashRouter, Routes, Route } from "react-router-dom";
+import { HashRouter } from "react-router-dom";
 import { Home } from "../../pages/Home/Home";
 import BatchDetail from "../../pages/BatchDetail/BatchDetail";
 import { type UserSession } from "../../types/auth.types";
