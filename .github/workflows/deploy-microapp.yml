@@ -22,6 +22,7 @@ jobs:
           # Esto copia el 404.html de tu repo a la carpeta de dist
           # para que cuando el action haga deploy, lo suba a la raíz
           # cp ./404.html ./chamberInventoryMP/dist/404.html
+          ls -R
           cp ../404.html dist/404.html
 
       - name: Deploy
