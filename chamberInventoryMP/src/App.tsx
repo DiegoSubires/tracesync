@@ -123,7 +123,7 @@ export default function App() {
     const hubUrl =
       window.location.hostname === "localhost"
         ? "http://localhost:5174/"
-        : "https://tracesync.github.io/hub/";
+        : "https://tracesync.github.io/tracesync/";
     window.location.replace(hubUrl);
   };
 
