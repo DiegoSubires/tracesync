@@ -2,7 +2,7 @@ name: Deploy Microapp
 on:
   push:
     branches: [main]
-    paths: ["chamberInventoryMP/**"] # Solo se ejecuta si cambia la microapp
+    #paths: ["chamberInventoryMP/**"] # Solo se ejecuta si cambia la microapp
 
 jobs:
   build-and-deploy:
@@ -21,11 +21,12 @@ jobs:
         run: |
           # Esto copia el 404.html de tu repo a la carpeta de dist
           # para que cuando el action haga deploy, lo suba a la raíz
-          cp ./404.html ./chamberInventoryMP/dist/404.html
+          # cp ./404.html ./chamberInventoryMP/dist/404.html
+          cp ../404.html dist/404.html
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./chamberInventoryMP/dist
-          destination_dir: chamberInventoryMP
+          # destination_dir: chamberInventoryMP
