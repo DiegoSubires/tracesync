@@ -72,7 +72,7 @@ const URLS = {
 };
 
 export default function App() {
-  console.log("🚀 [App.tsx] Renderizando App principal...");
+  //console.log("🚀 [App.tsx] Renderizando App principal...");
   const [session] = useState<UserSession>(() => {
     // 🔍 LOG 1: Verificar qué trae la URL y las Cookies al cargar
     const urlParams = new URLSearchParams(window.location.search);
