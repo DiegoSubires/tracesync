@@ -215,6 +215,11 @@ const DEFAULT_TENANT = {
   logoUrl: `${import.meta.env.BASE_URL}logo.png`,
 };
 
+/*const URLS = {
+  HUB: "https://tracesync.github.io/tracesync/", 
+  MICROAPP: "https://tracesync.github.io/tracesync/chamberInventoryMP/" 
+};*/
+
 export default function App() {
   console.log("Quitar");
   /*const [session, setSession] = useState<AuthSessionState | null>(() =>

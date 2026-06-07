@@ -66,6 +66,11 @@ const getCookie = (name: string): string => {
   return match ? decodeURIComponent(match[2]) : "";
 };
 
+const URLS = {
+  HUB: "https://tracesync.github.io/tracesync/", // Hub en producción
+  MICROAPP: "https://tracesync.github.io/tracesync/chamberInventoryMP/", // Tu microapp
+};
+
 export default function App() {
   console.log("🚀 [App.tsx] Renderizando App principal...");
   const [session] = useState<UserSession>(() => {
@@ -120,12 +125,16 @@ export default function App() {
   >(null);
   const [isDayClosed, setIsDayClosed] = useState<boolean>(false);
 
-  const handleLogout = () => {
+  /*const handleLogout = () => {
     const hubUrl =
       window.location.hostname === "localhost"
         ? "http://localhost:5174/"
         : "https://tracesync.github.io/tracesync/";
     window.location.replace(hubUrl);
+  };*/
+
+  const handleLogout = () => {
+    window.location.replace(URLS.HUB);
   };
 
   const handleNavigate = (
