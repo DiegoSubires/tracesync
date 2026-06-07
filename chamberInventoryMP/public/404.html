@@ -2,10 +2,11 @@
 <html>
   <head>
     <meta charset="utf-8" />
+    <title>Tracesync</title>
     <script>
-      // Redirige cualquier 404 al index.html manteniendo la ruta original
-      // para que el Router de React pueda leerla
-      var pathSegmentsToKeep = 2; // Ajusta según la profundidad de tu URL
+      // Este script captura la ruta que el usuario intenta visitar
+      // y la mantiene en la URL del navegador, cargando el index.html
+      var pathSegmentsToKeep = 1;
       var l = window.location;
       l.replace(
         l.protocol +
