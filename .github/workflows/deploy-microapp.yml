@@ -16,9 +16,12 @@ jobs:
           cd chamberInventoryMP
           npm install
           npm run build
-          # FORZAMOS LA COPIA AQUÍ:
-          mkdir -p dist
-          cp public/404.html dist/404.html
+
+      - name: Preparar 404.html para la raíz
+        run: |
+          # Esto copia el 404.html de tu repo a la carpeta de dist
+          # para que cuando el action haga deploy, lo suba a la raíz
+          cp ./404.html ./chamberInventoryMP/dist/404.html
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
